@@ -1,0 +1,9 @@
+# Copyrighted audio -- not for distribution via this deployment
+Songs/
+
+# OS cruft
+Thumbs.db
+.DS_Store
+
+# Local dev/build spec doc, not needed in the deployment
+jerk-site-build.md
