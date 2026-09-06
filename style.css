@@ -730,6 +730,49 @@ body {
   display: none;
 }
 
+/* ---------- msn sign-in toast ---------- */
+
+.msn-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 52px;
+  width: 220px;
+  background: #c0c0c0;
+  box-shadow:
+    inset -1px -1px 0 #0a0a0a,
+    inset 1px 1px 0 #fff,
+    inset -2px -2px 0 #808080,
+    inset 2px 2px 0 #dfdfdf;
+  z-index: 8000;
+  font-size: 11px;
+  animation: toast-in 0.25s ease-out;
+}
+
+.msn-toast[hidden] {
+  display: none;
+}
+
+.msn-toast-title {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 6px;
+  font-size: 11px;
+}
+
+.msn-toast-body {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+}
+
+@keyframes toast-in {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 /* ---------- shutdown overlay ---------- */
 
 .shutdown-overlay {
@@ -754,6 +797,46 @@ body {
 .shutdown-overlay p {
   max-width: 420px;
   line-height: 1.6;
+}
+
+/* ---------- alon popup ---------- */
+
+.alon-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background: #c0c0c0;
+  box-shadow:
+    inset -1px -1px 0 #0a0a0a,
+    inset 1px 1px 0 #fff,
+    inset -2px -2px 0 #808080,
+    inset 2px 2px 0 #dfdfdf;
+  z-index: 10000;
+  animation: alon-pop-in 0.2s ease-out;
+}
+
+.alon-popup[hidden] {
+  display: none;
+}
+
+.alon-popup-body {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.alon-popup-body img {
+  max-width: 100%;
+  display: block;
+}
+
+@keyframes alon-pop-in {
+  from { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
 /* ---------- msn messenger ---------- */
@@ -978,6 +1061,7 @@ body {
 .chat-line {
   margin-bottom: 6px;
   line-height: 1.35;
+  white-space: pre-line;
 }
 
 .chat-line .who {

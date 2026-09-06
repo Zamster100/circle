@@ -436,7 +436,7 @@ shutdownOverlay.addEventListener('click', () => {
 /* ===== msn messenger ===== */
 
 const MSN_STATUSES = [
-  '$JERK Holder (Online)',
+  'Jerktillionair (Online)',
   'Definitely Not Selling (Online)',
   'Watching the Chart (Away)',
   'Diamond Hands Only (Busy)',
@@ -462,6 +462,74 @@ function setupMsnGroup(headerSelector, listId, arrowId) {
 
 setupMsnGroup('[data-group="online"]', 'msnOnlineList', 'msnOnlineArrow');
 setupMsnGroup('[data-group="offline"]', 'msnOfflineList', 'msnOfflineArrow');
+
+/* ===== msn presence simulation: some online contacts start offline, then randomly sign in ===== */
+
+function updateMsnGroupCounts() {
+  document.getElementById('msnOnlineCount').textContent =
+    document.querySelectorAll('#msnOnlineList .msn-contact').length;
+  document.getElementById('msnOfflineCount').textContent =
+    document.querySelectorAll('#msnOfflineList .msn-contact').length;
+}
+
+function showMsnSignInToast(name) {
+  const toast = document.getElementById('msnToast');
+  const body = document.getElementById('msnToastBody');
+  body.textContent = name + ' has signed in.';
+  toast.hidden = false;
+  toast.style.animation = 'none';
+  void toast.offsetWidth;
+  toast.style.animation = '';
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => { toast.hidden = true; }, 4000);
+}
+
+function initMsnPresenceSimulation() {
+  const onlineRows = Array.from(document.querySelectorAll('#msnOnlineList .msn-contact'));
+  let pending = onlineRows.filter(() => Math.random() < 0.45);
+  if (pending.length < 2) {
+    const shuffled = onlineRows.slice().sort(() => Math.random() - 0.5);
+    pending = shuffled.slice(0, Math.min(2, shuffled.length));
+  }
+
+  const offlineList = document.getElementById('msnOfflineList');
+  const onlineList = document.getElementById('msnOnlineList');
+
+  pending.forEach((row) => {
+    row.classList.add('offline');
+    const dot = row.querySelector('.dot');
+    dot.classList.remove('dot-online');
+    dot.classList.add('dot-offline');
+    const nameEl = row.querySelector('.msn-name');
+    nameEl.textContent = '~~' + nameEl.textContent + '~~';
+    offlineList.appendChild(row);
+  });
+
+  updateMsnGroupCounts();
+
+  function scheduleNext() {
+    if (pending.length === 0) return;
+    const delay = 8000 + Math.random() * 17000;
+    setTimeout(() => {
+      const idx = Math.floor(Math.random() * pending.length);
+      const row = pending.splice(idx, 1)[0];
+      row.classList.remove('offline');
+      const dot = row.querySelector('.dot');
+      dot.classList.remove('dot-offline');
+      dot.classList.add('dot-online');
+      const nameEl = row.querySelector('.msn-name');
+      nameEl.textContent = nameEl.textContent.replace(/^~~/, '').replace(/~~$/, '');
+      onlineList.appendChild(row);
+      updateMsnGroupCounts();
+      showMsnSignInToast(nameEl.textContent);
+      scheduleNext();
+    }, delay);
+  }
+
+  scheduleNext();
+}
+
+initMsnPresenceSimulation();
 
 document.querySelectorAll('.msn-action').forEach((action) => {
   action.addEventListener('click', () => {
@@ -636,53 +704,190 @@ document.getElementById('msnNudgeBtn').addEventListener('click', () => {
 /* ===== fake chat windows ===== */
 
 const CHAT_LINES = {
-  Elon: [
-    '🚀 buy the dip, i always do',
-    'i tweeted about it, basically audited now',
-    'sorry gtg, launching another rocket',
-    'my status message is a joke please dont sue me',
+  theunipcs: [
+    'well i did tell you. still not too late my G.',
+    'screenshot this. next DOGE PEPE runner, GOD WILLING.',
+    'they called me insane. i screamed this for weeks. multi-billions GOD WILLING.',
+    'you have been warned. position now or chase later, your choice.',
+    'up big again. VOLUME, listings, team all lining up. dont blindly copytrade tho.',
+    'take the day off, touch grass, then we dominate.',
+    'chad move if youre still here. top G behavior.',
+    'credit God for this one, not me. GOD WILLING we keep going.',
   ],
-  Bezos: [
-    '📦 have you tried Prime for gains?',
-    'i dont do crypto, i do everything else',
-    'the yacht needed a bigger yacht',
-    'same-day shipping, same-day dumping',
+  cryptogle: [
+    'I yelled and yelled and yelled about $bonk at $20m',
+    "you can lead a horse to water, but you can't make it drink",
+    'INVEST IN TEAMS!',
+    'lol are you guys seeing these numbers??? dyor as always',
+    'comfy in $pons spot here',
+    'people thought I was insane',
+    "goofy mf's. dyor as always",
+    'very cool, bullish',
+    'so umm thanks... I appreciate it. dyor as always',
   ],
-  Vitalik: [
-    '🦄 gm gm gm',
-    'have you tried scaling solution #47',
-    'unrelated but the flippening is near',
-    'i only speak in roadmaps',
+  blknoiz06: [
+    'yep',
+    'DEEPLY',
+    'WOW',
+    'zcash is crazy',
+    "let's dance",
+    'we won forever',
+    'this is really a generational cycle man',
+    "we have billionaires pvp'ing each other for our onchain bags bros this is the greatest timeline to exist",
   ],
-  Satoshi: [
-    '...',
-    '...',
-    '(this contact has never been online)',
-    'satoshi is typing... satoshi has stopped typing',
+  frankdegods: [
+    'just do shit.',
+    "create motion and you'll figure it out on the way.",
+    'game is fuckin game.',
+    'lick wounds and get back in the lab.',
+    'u probably regret selling good bags today btw.',
+    'always the mouthbreathers that got smthn to say.',
+    'the risk of failure > certainty of regret. every time.',
+    'hold the good. flip the mid.',
+    'is what it is.',
   ],
-  rug_survivor_420: [
-    '💎 down bad but vibes immaculate',
-    'diamond hands or no hands',
-    'my therapist told me to stop checking the chart',
-    'still here. still holding. send help',
+  notanicecat69: [
+    "we're fucking back",
+    "it's fucking time",
+    "let's make some money tho",
+    "we're here for asymmetric upside, take a chance",
+    'easy mode',
+    "the trenches are cooked but that's the scary part where all the money is made\ncomfy",
+    'higher for longer retardios',
+    "don't right curve this",
+    'i hope you all win. may not seem it but these words come from a place of love.',
   ],
-  paperhands_pete: [
-    'sold the bottom, dont @ me',
-    'i regret everything',
-    '(this contact appears to be crying)',
-    'i watch from the sidelines now',
+  RowdyCrypto: [
+    'the dream is alive fren 💫',
+    'much love, no risk, no rari',
+    'see you on chain anon',
+    "are you willing to pay the price?\nthe life you want will cost the life you have. most people aren't willing.",
+    'just another day in the office',
+    "i'm back",
+    'yessir',
+    'send it',
   ],
-  moonboy2021: [
-    'still waiting for the moon mission',
-    'any day now',
-    'any day now...',
-    'the moon is closer than you think, right?',
+  PoorGoat_: [
+    'The horns stay on. Much Meow! 💛🐈',
+    'Billion. Dollar. CATE. 💛🐈',
+    'CATE WILL FLIP DOGE. 💛🐈',
+    'ONBOARD THE WORLD 💛🐈',
+    'Everyone buys CATE at the price they deserve. 💛🐈',
+    'The catalyst is the community. 💛🐈',
+    "We're just getting started. 💛🐈",
+    "LET'S COOK 😹 💛🐈",
   ],
-  ex_bagholder: [
-    'i dont talk about it',
-    'therapy is expensive',
-    'block me if you mention 2021',
-    'im in a better place now (offline)',
+  DipWheeler: [
+    'generational bottom.',
+    'i wake up everyday & unclog toilets.',
+    'we have the technology.',
+    "for every dip, there's a rip.",
+    'i was drunk when i bought fartcoin at 70k mc. lesson in that.',
+    'piss off your employed friends szn.',
+    'the plumbers are waking up.',
+    "we haven't seen shit.",
+    'return to memes.',
+  ],
+  rasmr_eth: [
+    'THIS META IS SO BULLISH BRO WHAT',
+    'The most PVE memecoin in HISTORY. 🍿',
+    'Conviction the whole way brother',
+    'Job not finished.',
+    'Look at that chad thesis',
+    'we are going higher. MUCH higher.',
+    "that's when we deploy everything.",
+  ],
+  Quanterty: [
+    "I'm so bullish on myself I could be down a mil tomorrow and I know Imma have that shit back end of week",
+    'So fucking proud of myself',
+    'I roundtrip a lotttttttttt of stuff tbh',
+    'Don\'t copy trade. Thesis post is not a shill.',
+    'Onwards and upwards always',
+    "Job ain't finished",
+    'Crypto is genuinely such an insane sport',
+    "down bad this morning, green by 4. job ain't finished.\ni love you",
+  ],
+  loganlim_x: [
+    'I was born in the trenches, aping in 10k mc coins hoping them to hit millies.',
+    "yooo i'm a retard even sold the bottom at loss",
+    'I make a lot of stupid trades, top blasting, waving in my conviction and cutting losses.',
+    'WAGMI and all the best to everyone.',
+    'My life motto: Die or Moon',
+    'yooo lmao i top blasted again. still here tho. WAGMI',
+  ],
+  MoneyLord: [
+    'I never lose, I either win or learn',
+    'we are so back. its MONEY TIME.\nOnward and upward',
+    'You are HERE to make MONEY.\nOnward and upward',
+    'Generational run coming',
+    'Less is more.\nOnward and upward',
+    "you either get it or you don't tbh",
+    'Skill issue, you either live the game or get eaten',
+    'Always reflect and re adapt.\nOnward and upward',
+  ],
+  EricCryptoman: [
+    'GOOD LORD THAT IS BREW-TAL',
+    'Did you buy the cat yet or nah?',
+    "IT PAYS TO BE A HODLER.\nPunishing jeets szn is my favourite szn bruv.",
+    'King shit',
+    "Don't fade this. I'll keep saying it.",
+    'I look like a zombie bruv',
+  ],
+  a1lon9: [
+    'just getting started',
+    'just the beginning.',
+    'you cannot stop this train.',
+    "let's cook",
+    'organic always wins. real communities always win. OGs always win',
+    'W',
+    'goat',
+    "we ship what the trenches actually want\nit is that simple\nSent from my Pumpfun App",
+    "just the beginning.\nSent from my Pumpfun App",
+  ],
+  seyong: [
+    'fomo made crypto fun again.',
+    'the more i trade equities, the more i realize every market is just trading attention',
+    'life is more fun as a video game.',
+    'i either do or i dont.',
+    'ppl just like to hate',
+    'bullish',
+    "there's never been a better time to build.",
+    'the time to cope and seethe was the bottom. pls leave that energy there.',
+  ],
+  toly: [
+    "lol. that's lame.",
+    'there is a mountain of work left to do on all fronts.',
+    "don't bring back last cycle eth killer bs. it's lame.",
+    'what is dead cannot die.',
+    "as an engineer, if it's not going to happen in two weeks, there's a 50% chance it's never going to happen.",
+    "solana isn't designed for max throughput, it's designed to sync state to as many boxes as physics allows.",
+    'sleeper agent behavior. mountain of work left. just ship.',
+  ],
+  vladtenev: [
+    "What's the concern?",
+    'We are still early.',
+    'This is worth fighting for.',
+    'Everyone should be able to access high-quality financial assets, wherever they live.',
+    'We built this because the old way excludes too many people. We are still early.',
+    'No caveats. We are already building the answer.',
+  ],
+  cz_binance: [
+    'Fly at night, talk crypto from sunrise.',
+    'Health is wealth.',
+    'Onwards.',
+    'Real progress!',
+    'I buy and hold.',
+    'I strongly believe the best investments happen in the depth of winter.',
+    'Long day. Team shipped. Onwards.',
+  ],
+  jessepollak: [
+    'bm.',
+    'all onchain.',
+    'proud to be building with you 🫡',
+    'this is why we do it',
+    'bring it on',
+    "it's a privilege to be in the trenches with all of you",
+    'more options, more long tail, more liquidity. more experimentation is good',
   ],
 };
 
@@ -734,8 +939,36 @@ function sendChat() {
 }
 
 document.querySelectorAll('.msn-contact[data-contact]').forEach((row) => {
-  row.addEventListener('click', () => openChat(row.dataset.contact));
+  row.addEventListener('click', () => {
+    if (row.dataset.contact === 'a1lon9') showAlonPopup();
+    openChat(row.dataset.contact);
+  });
 });
+
+/* ===== alon popup (gif + laugh sound for 20s) ===== */
+
+const ALON_POPUP_DURATION = 10000;
+let alonPopupTimer = null;
+
+function hideAlonPopup() {
+  clearTimeout(alonPopupTimer);
+  alonPopupTimer = null;
+  document.getElementById('alonPopup').hidden = true;
+  const audio = document.getElementById('alonLaughAudio');
+  audio.pause();
+  audio.currentTime = 0;
+}
+
+function showAlonPopup() {
+  clearTimeout(alonPopupTimer);
+  document.getElementById('alonPopup').hidden = false;
+  const audio = document.getElementById('alonLaughAudio');
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
+  alonPopupTimer = setTimeout(hideAlonPopup, ALON_POPUP_DURATION);
+}
+
+document.getElementById('alonPopupClose').addEventListener('click', hideAlonPopup);
 
 document.getElementById('chatSendBtn').addEventListener('click', sendChat);
 document.getElementById('chatInput').addEventListener('keydown', (e) => {

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>$JERK</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -217,13 +217,13 @@
 
         <div class="msn-status" id="msnStatusRow" title="Click to change status">
           <div class="msn-status-label">My Status</div>
-          <div class="msn-status-value"><span class="dot dot-online"></span> <span id="msnStatusText">$JERK Holder (Online)</span> <span class="msn-caret">&#9662;</span></div>
+          <div class="msn-status-value"><span class="dot dot-online"></span> <span id="msnStatusText">Jerktillionair (Online)</span> <span class="msn-caret">&#9662;</span></div>
         </div>
 
         <div class="msn-noemail">&#9993; No new e-mail messages.</div>
 
         <div class="msn-group-header" data-group="online">
-          <span class="msn-arrow" id="msnOnlineArrow">&#9662;</span> Online (13)
+          <span class="msn-arrow" id="msnOnlineArrow">&#9662;</span> Online (<span id="msnOnlineCount">13</span>)
         </div>
         <div class="msn-group" id="msnOnlineList">
           <div class="msn-contact" data-contact="theunipcs"><span class="dot dot-online"></span><span class="msn-name">theunipcs</span><span class="msn-msg">100mln loading</span></div>
@@ -242,7 +242,7 @@
         </div>
 
         <div class="msn-group-header" data-group="offline">
-          <span class="msn-arrow" id="msnOfflineArrow">&#9662;</span> Not Online (6)
+          <span class="msn-arrow" id="msnOfflineArrow">&#9662;</span> Not Online (<span id="msnOfflineCount">6</span>)
         </div>
         <div class="msn-group" id="msnOfflineList">
           <div class="msn-contact offline" data-contact="a1lon9"><span class="dot dot-offline"></span><span class="msn-name">~~a1lon9~~</span><span class="msn-msg">airdrop anyone? ;]</span></div>
@@ -431,6 +431,27 @@
   <p>It is now safe to close this tab.<br><br>(Just kidding &mdash; click anywhere to reboot $JERK.)</p>
 </div>
 
-<script src="script.js?v=11"></script>
+<div class="msn-toast" id="msnToast" hidden>
+  <div class="msn-toast-title">&#129419; MSN Messenger</div>
+  <div class="msn-toast-body">
+    <span class="dot dot-online"></span>
+    <span id="msnToastBody"></span>
+  </div>
+</div>
+
+<div class="alon-popup" id="alonPopup" hidden>
+  <div class="win-titlebar">
+    <span class="title">&#128075; a1lon9.exe</span>
+    <span class="win-controls">
+      <button class="win-btn" id="alonPopupClose">X</button>
+    </span>
+  </div>
+  <div class="alon-popup-body">
+    <img src="Songs/alon.gif" alt="a1lon9" id="alonGif">
+  </div>
+</div>
+<audio id="alonLaughAudio" src="Songs/laugh.mp3" preload="none"></audio>
+
+<script src="script.js?v=15"></script>
 </body>
 </html>
