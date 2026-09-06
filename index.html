@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$JERK</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css?v=8">
+</head>
+<body>
+
+<div class="starfield">
+
+  <div class="desktop" id="desktop">
+
+    <button class="planet" data-window="lineup" style="left:8%; top:4%;" aria-label="Open the lineup">
+      <div class="planet-circle" style="background:#e0393e; border-color:#ffb0b0;"></div>
+      <div class="planet-label">the lineup</div>
+    </button>
+
+    <button class="planet" data-window="holders" style="right:6%; top:0%;" aria-label="Open holders club">
+      <div class="planet-circle" style="background:#ff8c1a; border-color:#ffd9a0;"></div>
+      <div class="planet-label">holders club</div>
+    </button>
+
+    <button class="planet" data-window="buy" style="left:2%; top:34%;" aria-label="Open buy $jerk">
+      <div class="planet-circle" style="background:#8fd13f; border-color:#d8ffb0;"></div>
+      <div class="planet-label">buy $jerk</div>
+    </button>
+
+    <button class="planet" data-window="chart" style="right:2%; top:38%;" aria-label="Open chart">
+      <div class="planet-circle" style="background:#33c1c9; border-color:#b0f0ff;"></div>
+      <div class="planet-label">chart</div>
+    </button>
+
+    <button class="planet" data-window="winamp" style="left:6%; bottom:6%;" aria-label="Open Winamp">
+      <div class="msn-icon">&#127911;</div>
+      <div class="planet-label">winamp</div>
+    </button>
+
+    <button class="planet" data-window="telegram" style="right:10%; bottom:16%;" aria-label="Open telegram">
+      <div class="planet-circle" style="background:#c04ad6; border-color:#f0c0ff;"></div>
+      <div class="planet-label">telegram</div>
+    </button>
+
+    <button class="planet" data-window="msn" style="left:50%; top:2%; transform:translateX(-50%);" aria-label="Open MSN Messenger">
+      <span class="new-badge">NEW!</span>
+      <div class="msn-icon">&#129419;</div>
+      <div class="planet-label">msn messenger</div>
+    </button>
+
+    <div class="center-stage">
+      <div class="ring-logo-wrap" id="ringLogo" data-window="about" title="About $JERK">
+        <img src="assets/logo.svg" alt="Jerk ring logo" width="180" height="180">
+      </div>
+      <div class="wordmark">JERK</div>
+    </div>
+
+    <button class="ad-banner" id="adBanner" aria-label="Open ad">
+      <div class="ad-headline">!!! GET BIGGER GAINS FAST !!!</div>
+      <div class="ad-body">TRY NEW "VIGOR-EZ" &mdash; CLICK HERE FOR FREE TRIAL</div>
+    </button>
+
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <span class="ticker-seg">$JERK &nbsp;|&nbsp; CA: 0xPLACEHOLDER_NOT_DEPLOYED_YET &nbsp;|&nbsp; $JERK &nbsp;|&nbsp; CA: 0xPLACEHOLDER_NOT_DEPLOYED_YET &nbsp;|&nbsp; $JERK &nbsp;|&nbsp; CA: 0xPLACEHOLDER_NOT_DEPLOYED_YET &nbsp;|&nbsp;</span><span class="ticker-seg" aria-hidden="true">$JERK &nbsp;|&nbsp; CA: 0xPLACEHOLDER_NOT_DEPLOYED_YET &nbsp;|&nbsp; $JERK &nbsp;|&nbsp; CA: 0xPLACEHOLDER_NOT_DEPLOYED_YET &nbsp;|&nbsp; $JERK &nbsp;|&nbsp; CA: 0xPLACEHOLDER_NOT_DEPLOYED_YET &nbsp;|&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="retro-footer">
+      <div class="construction-bar">&#128679; UNDER CONSTRUCTION &#128679; &mdash; still rugging bugs, not bags</div>
+
+      <div class="visitor-counter">
+        <span class="vc-label">bags loaded:</span>
+        <span class="vc-digits" id="visitorDigits">000000</span>
+      </div>
+
+      <div class="webring">
+        <button class="webring-link" data-note="Webring not set yet">&laquo;&nbsp;prev</button>
+        <span class="webring-title">$JERK WEBRING</span>
+        <button class="webring-link" data-note="Webring not set yet">next&nbsp;&raquo;</button>
+      </div>
+
+      <div class="badge-row">
+        <div class="badge badge-800">&#128421; BEST VIEWED<br>IN 800&times;600</div>
+        <div class="badge badge-browser">&#127760; Netscape<br>Now!</div>
+        <div class="badge badge-browser badge-ie"><span class="badge-ie-icon">e</span> Get<br>Internet Explorer</div>
+      </div>
+    </div>
+
+    <!-- ===== windows ===== -->
+
+    <div class="win95-window" id="win-buy" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#129689; buy_jerk.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>Buy $JERK</h3>
+        <p class="warn">&#9888; NOT DEPLOYED YET &mdash; placeholder contract, do not send funds.</p>
+        <div class="win-field" id="caField">0xPLACEHOLDER_NOT_DEPLOYED_YET</div>
+        <div class="win-btn-row">
+          <button class="btn95" id="buyLinkBtn">Open Uniswap</button>
+          <button class="btn95" id="copyCaBtn">Copy CA</button>
+          <span class="copy-feedback" id="copyFeedback" hidden>Copied!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-lineup" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#128203; the_lineup.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>The Lineup</h3>
+        <div class="explorer-row"><span>&#128640;</span><span class="name">Phase 1 &mdash; Liftoff.exe</span><span class="kind">MEME</span></div>
+        <div class="explorer-row"><span>&#11088;</span><span class="name">Phase 2 &mdash; Holders Club.exe</span><span class="kind">MEME</span></div>
+        <div class="explorer-row"><span>&#128176;</span><span class="name">Phase 3 &mdash; Stellar Bags.exe</span><span class="kind">MEME</span></div>
+        <div class="explorer-row"><span>&#127769;</span><span class="name">Phase 4 &mdash; To The Moon.exe</span><span class="kind">???</span></div>
+        <p style="margin-top:8px; font-size:11px; color:#555;">No promises. No utility. Just vibes.</p>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-holders" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#11088; holders_club.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>Holders Club</h3>
+        <p>Members-only vibes for degens who never sell. No dues. No meetings. Just bags.</p>
+        <div class="win-btn-row">
+          <button class="btn95" id="followXBtn">Follow on X</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-chart" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#128200; chart.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>Chart</h3>
+        <p style="font-family:'Courier New',monospace; font-size:11px; line-height:1.2;">
+ &#9608;<br>
+ &#9608;&nbsp;&#9608;<br>
+ &#9608;&nbsp;&#9608;&nbsp;&#9608;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9608;&nbsp;&#9608;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9608;
+        </p>
+        <p style="font-size:11px; color:#555;">Live chart wiring pending &mdash; spin speed will track market cap once a data source is connected.</p>
+        <div class="win-btn-row">
+          <button class="btn95" id="chartLinkBtn">Open Full Chart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-bags" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#128176; stellar_bags.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>My Bags</h3>
+        <div class="bags-grid">
+          <div><div class="icon">&#128142;</div><div class="caption">diamond_hands.jpg</div></div>
+          <div><div class="icon">&#128184;</div><div class="caption">paper_hands.bak</div></div>
+          <div><div class="icon">&#128176;</div><div class="caption">stellar_bags.zip</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-telegram" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#9992; telegram.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>Telegram</h3>
+        <p>Join the group chat. Charts, memes, and unsolicited financial opinions.</p>
+        <div class="win-btn-row">
+          <button class="btn95" id="telegramLinkBtn">Join Telegram</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="win95-window win-msn" id="win-msn" hidden style="width:300px;">
+      <div class="win-titlebar">
+        <span class="title">&#129419; MSN Messenger</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="msn-menubar">File &nbsp; Actions &nbsp; Tools &nbsp; Help</div>
+      <div class="win-body msn-body">
+
+        <div class="msn-status" id="msnStatusRow" title="Click to change status">
+          <div class="msn-status-label">My Status</div>
+          <div class="msn-status-value"><span class="dot dot-online"></span> <span id="msnStatusText">$JERK Holder (Online)</span> <span class="msn-caret">&#9662;</span></div>
+        </div>
+
+        <div class="msn-noemail">&#9993; No new e-mail messages.</div>
+
+        <div class="msn-group-header" data-group="online">
+          <span class="msn-arrow" id="msnOnlineArrow">&#9662;</span> Online (5)
+        </div>
+        <div class="msn-group" id="msnOnlineList">
+          <div class="msn-contact" data-contact="Elon"><span class="dot dot-online"></span><span class="msn-name">Elon</span><span class="msn-msg">&#128640; to the moon (again)</span></div>
+          <div class="msn-contact" data-contact="Bezos"><span class="dot dot-online"></span><span class="msn-name">Bezos</span><span class="msn-msg">&#128230; free 2-day rugs w/ Prime</span></div>
+          <div class="msn-contact" data-contact="Vitalik"><span class="dot dot-online"></span><span class="msn-name">Vitalik</span><span class="msn-msg">&#129412; gm gm gm</span></div>
+          <div class="msn-contact" data-contact="Satoshi"><span class="dot dot-away"></span><span class="msn-name">Satoshi (Away)</span><span class="msn-msg">&#128123; afk since 2010</span></div>
+          <div class="msn-contact" data-contact="rug_survivor_420"><span class="dot dot-online"></span><span class="msn-name">rug_survivor_420</span><span class="msn-msg">&#128142; still holding, still hoping</span></div>
+        </div>
+
+        <div class="msn-group-header" data-group="offline">
+          <span class="msn-arrow" id="msnOfflineArrow">&#9662;</span> Not Online (3)
+        </div>
+        <div class="msn-group" id="msnOfflineList">
+          <div class="msn-contact offline" data-contact="paperhands_pete"><span class="dot dot-offline"></span><span class="msn-name">~~paperhands_pete~~</span></div>
+          <div class="msn-contact offline" data-contact="moonboy2021"><span class="dot dot-offline"></span><span class="msn-name">moonboy2021</span></div>
+          <div class="msn-contact offline" data-contact="ex_bagholder"><span class="dot dot-offline"></span><span class="msn-name">ex_bagholder</span></div>
+        </div>
+
+        <div class="msn-sep"></div>
+
+        <div class="msn-iwantto">I want to...</div>
+        <div class="msn-action" data-msg="They declined. Try DMing on X instead.">&#128100;+ Add a Contact</div>
+        <div class="msn-action" data-msg="Message not sent: recipient is busy holding bags.">&#128172; Send an Instant Message</div>
+        <div class="msn-action" data-msg="Upload failed: file too heavy (like your bags).">&#128206; Send a File or Photo</div>
+        <div class="msn-action" data-msg="Call failed: no signal on the moon.">&#9742; Make a Phone Call</div>
+        <div class="msn-action" data-msg="Room's full of bots. Try Telegram instead.">&#128172; Go to Chat Rooms</div>
+        <div class="msn-action" id="msnNudgeBtn" data-msg="BUZZ!!!">&#128075; Send a Nudge</div>
+        <div class="msn-action" data-msg="There is no more. This is the whole app.">More</div>
+
+        <div class="msn-brand">&#129419; <span class="msn-brand-text">MSN<br>Messenger</span><sup>.NET</sup></div>
+      </div>
+      <div class="resize-handle" id="msnResizeHandle" title="Drag to resize"></div>
+    </div>
+
+    <div class="win95-window winamp-window" id="win-winamp" hidden style="width:270px;">
+      <div class="win-titlebar winamp-titlebar">
+        <span class="title">&#127911; Winamp</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="winamp-body">
+        <div class="winamp-display">
+          <div class="winamp-track" id="winampTrack">-- no track loaded --</div>
+          <div class="winamp-time" id="winampTime">0:00 / 0:00</div>
+        </div>
+
+        <div class="winamp-viz" id="winampViz">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <input type="range" id="winampSeek" class="winamp-seek" min="0" max="100" value="0" step="0.1">
+
+        <div class="winamp-controls-row">
+          <button class="winamp-btn" id="winampPrev" title="Previous">&#9198;</button>
+          <button class="winamp-btn" id="winampPlay" title="Play/Pause">&#9654;</button>
+          <button class="winamp-btn" id="winampStop" title="Stop">&#9632;</button>
+          <button class="winamp-btn" id="winampNext" title="Next">&#9197;</button>
+          <span class="winamp-vol-label">&#128266;</span>
+          <input type="range" id="winampVolume" class="winamp-volume" min="0" max="100" value="70">
+        </div>
+
+        <div class="winamp-note" id="winampNote" hidden></div>
+
+        <div class="winamp-playlist" id="winampPlaylist"></div>
+      </div>
+      <audio id="winampAudio" preload="none"></audio>
+    </div>
+
+    <div class="win95-window" id="win-chat" hidden style="width:260px;">
+      <div class="win-titlebar">
+        <span class="title" id="chatTitle">&#128172; Chat</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body chat-body">
+        <div class="chat-log" id="chatLog"></div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" class="win-field chat-input" placeholder="Type a message...">
+          <button class="btn95" id="chatSendBtn">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-about" hidden>
+      <div class="win-titlebar">
+        <span class="title">&#8505; about_jerk.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3>About $JERK</h3>
+        <p>$JERK is a meme coin. No utility, no roadmap promises, no financial advice.</p>
+        <p style="font-size:11px; color:#555;">Do your own research. Only risk what you can lose.</p>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-ad" hidden style="width:300px;">
+      <div class="win-titlebar">
+        <span class="title">&#10071; vigor-ez_ad.exe</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <h3 style="color:#d40000;">VIGOR-EZ&trade;</h3>
+        <p>Guaranteed* to make your bags heavier! Doctors** hate this one weird trick!</p>
+        <p style="font-size:10px; color:#555;">*Not guaranteed. **Not real doctors. This is satire, not a real product &mdash; not financial advice.</p>
+        <div class="win-btn-row">
+          <button class="btn95" id="adOrderBtn">Order Now</button>
+        </div>
+        <p class="run-error" id="adResult" hidden>&#10071;&nbsp;<span>Nice try. This is a joke ad. DYOR, always.</span></p>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-run" hidden style="width:300px;">
+      <div class="win-titlebar">
+        <span class="title">&#128187; Run</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <p>Type the name of a program, folder, document, or internet resource, and $JERK will open it for you.</p>
+        <input type="text" id="runInput" class="win-field" style="width:100%; font-family:inherit; border:none; outline:none;" placeholder="Open:">
+        <div class="win-btn-row">
+          <button class="btn95" id="runOkBtn">OK</button>
+          <button class="btn95" data-action="close" data-target="run">Cancel</button>
+        </div>
+        <p class="run-error" id="runError" hidden>&#10071;&nbsp;<span>This program cannot be run in a bull market.</span></p>
+      </div>
+    </div>
+
+    <div class="win95-window" id="win-shutdown" hidden style="width:300px;">
+      <div class="win-titlebar">
+        <span class="title">&#128268; Shut Down Windows</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body">
+        <p>Are you sure you want to:</p>
+        <label class="radio-row"><input type="radio" name="shutdown-option" checked> Shut down the rug (jk)</label>
+        <label class="radio-row"><input type="radio" name="shutdown-option"> Restart the moon mission</label>
+        <label class="radio-row"><input type="radio" name="shutdown-option"> Log off degen</label>
+        <div class="win-btn-row">
+          <button class="btn95" id="shutdownOkBtn">OK</button>
+          <button class="btn95" data-action="close" data-target="shutdown">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="start-menu" id="startMenu" hidden>
+    <div class="start-sidebar">$JERK 95</div>
+    <div class="start-items">
+      <div class="start-item" id="programsItem">
+        <span class="start-icon">&#128193;</span> Programs <span class="arrow">&#9654;</span>
+        <div class="submenu" id="programsSubmenu" hidden>
+          <div class="start-item" data-open="lineup"><span class="start-icon">&#128203;</span> The Lineup</div>
+          <div class="start-item" data-open="holders"><span class="start-icon">&#11088;</span> Holders Club</div>
+          <div class="start-item" data-open="buy"><span class="start-icon">&#129689;</span> Buy $JERK</div>
+          <div class="start-item" data-open="chart"><span class="start-icon">&#128200;</span> Chart</div>
+          <div class="start-item" data-open="bags"><span class="start-icon">&#128176;</span> Stellar Bags</div>
+          <div class="start-item" data-open="telegram"><span class="start-icon">&#9992;</span> Telegram</div>
+          <div class="start-item" data-open="winamp"><span class="start-icon">&#127911;</span> Winamp</div>
+        </div>
+      </div>
+      <div class="start-item" data-open="about"><span class="start-icon">&#8505;</span> About $JERK</div>
+      <div class="start-item" data-open="run"><span class="start-icon">&#128187;</span> Run...</div>
+      <div class="start-sep"></div>
+      <div class="start-item" data-open="shutdown"><span class="start-icon">&#128268;</span> Shut Down...</div>
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <button class="start-btn" id="startBtn"><img src="assets/logo.svg" alt=""> Start</button>
+    <div class="taskbar-windows" id="taskbarWindows"></div>
+    <div class="clock" id="clock">4:00 PM</div>
+  </div>
+
+</div>
+
+<div class="shutdown-overlay" id="shutdownOverlay" hidden>
+  <p>It is now safe to close this tab.<br><br>(Just kidding &mdash; click anywhere to reboot $JERK.)</p>
+</div>
+
+<script src="script.js?v=11"></script>
+</body>
+</html>
