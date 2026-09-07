@@ -841,6 +841,60 @@ body {
   display: none;
 }
 
+/* ---------- testimonial card ---------- */
+
+.testimonial-card {
+  position: fixed;
+  right: 16px;
+  bottom: 128px;
+  width: 240px;
+  background: #c0c0c0;
+  box-shadow:
+    inset -1px -1px 0 #0a0a0a,
+    inset 1px 1px 0 #fff,
+    inset -2px -2px 0 #808080,
+    inset 2px 2px 0 #dfdfdf;
+  z-index: 4500;
+  animation: toast-in 0.25s ease-out;
+}
+
+.testimonial-card[hidden] {
+  display: none;
+}
+
+.testimonial-body {
+  padding: 8px;
+}
+
+.testimonial-quote {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.4;
+  color: #000;
+}
+
+.testimonial-author {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: #000080;
+  line-height: 1.4;
+}
+
+.testimonial-author em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 116px;
+  }
+}
+
 /* ---------- alon popup ---------- */
 
 .alon-popup {

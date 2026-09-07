@@ -41,6 +41,12 @@
   });
 })();
 
+/* ===== testimonial card ===== */
+
+document.getElementById('testimonialCloseBtn').addEventListener('click', () => {
+  document.getElementById('testimonialCard').hidden = true;
+});
+
 /* ===== clock ===== */
 
 function updateClock() {
