@@ -1,3 +1,46 @@
+/* ===== password gate ===== */
+
+(function () {
+  const SITE_PASSWORD = 'Jerk2026';
+  const gate = document.getElementById('passwordGate');
+  const input = document.getElementById('passwordInput');
+  const error = document.getElementById('passwordError');
+  const submitBtn = document.getElementById('passwordSubmitBtn');
+
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = sessionStorage.getItem('jerkUnlocked') === '1';
+  } catch (e) {
+    // sessionStorage unavailable -- fall back to asking every load
+  }
+
+  if (alreadyUnlocked) {
+    gate.hidden = true;
+  } else {
+    input.focus();
+  }
+
+  function tryUnlock() {
+    if (input.value === SITE_PASSWORD) {
+      gate.hidden = true;
+      try {
+        sessionStorage.setItem('jerkUnlocked', '1');
+      } catch (e) {
+        // ignore -- worst case it asks again next load
+      }
+    } else {
+      error.hidden = false;
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  submitBtn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+})();
+
 /* ===== clock ===== */
 
 function updateClock() {

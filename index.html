@@ -5,9 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>$JERK</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
+
+<div class="password-gate" id="passwordGate">
+  <div class="win95-window password-box">
+    <div class="win-titlebar">
+      <span class="title">&#128274; $JERK Access</span>
+    </div>
+    <div class="win-body">
+      <h3>Private Preview</h3>
+      <p>Enter the password to continue.</p>
+      <input type="password" id="passwordInput" class="win-field" placeholder="Password" autocomplete="off">
+      <p class="password-error" id="passwordError" hidden>Incorrect password. Try again.</p>
+      <div class="win-btn-row">
+        <button class="btn95" id="passwordSubmitBtn">Unlock</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="starfield">
 
@@ -452,6 +469,6 @@
 </div>
 <audio id="alonLaughAudio" src="assets/laugh.mp3" preload="none"></audio>
 
-<script src="script.js?v=15"></script>
+<script src="script.js?v=16"></script>
 </body>
 </html>
