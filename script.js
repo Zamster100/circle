@@ -246,6 +246,15 @@ function placeOnLeft(el) {
   el.style.top = '90px';
 }
 
+function placeCentered(el) {
+  const w = parseInt(el.style.width, 10) || 280;
+  const h = el.offsetHeight || 220;
+  const x = Math.max((window.innerWidth - w) / 2, 12);
+  const y = Math.max((window.innerHeight - h) / 2, 20);
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+}
+
 function openWindow(id) {
   const el = winEl(id);
   if (!el) return;
@@ -258,10 +267,13 @@ function openWindow(id) {
   }
 
   if (wasHidden) {
+    el.hidden = false;
     if (id === 'msn') {
       placeOnRight(el);
     } else if (id === 'winamp') {
       placeOnLeft(el);
+    } else if (id === 'terms') {
+      placeCentered(el);
     } else {
       placeWindowRandomly(el);
     }
