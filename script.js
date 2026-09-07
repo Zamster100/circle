@@ -41,10 +41,90 @@
   });
 })();
 
-/* ===== testimonial card ===== */
+/* ===== testimonial card (rotating carousel) ===== */
+
+const TESTIMONIALS = [
+  {
+    quote: "I used to sleep on my brother's couch. Now I sleep on a couch made of pure conviction. $JERK changed my mindset AND my mattress.",
+    name: 'Dr. Marv Kessler',
+    role: 'Author of "Think and Grow Circular"',
+  },
+  {
+    quote: 'I manifested my first Lambo using nothing but visualization, positive energy, and a 40x leverage position. The universe rewards those who ape in.',
+    name: 'Dr. Sunny Prosper',
+    role: 'Author of "The Bag Secret"',
+  },
+  {
+    quote: 'I used to think money was the root of all evil. Then I made a lot of it. Turns out I was just poor AND wrong.',
+    name: 'Barbara Winsley',
+    role: 'Motivational Speaker & Bestselling Author of "Yacht Mode: Activated"',
+  },
+  {
+    quote: 'People ask me, "Coach, how\'d you go from delivering pizzas to owning three islands?" I tell them: ONE COIN. ONE DECISION. ONE JERK.',
+    name: 'Marvin "The Wealth Wolf" Doyle',
+    role: null,
+  },
+];
+
+const TESTIMONIAL_INTERVAL = 7000;
+let testimonialIndex = 0;
+let testimonialTimer = null;
+
+function renderTestimonial(i) {
+  const t = TESTIMONIALS[i];
+  const quoteEl = document.getElementById('testimonialQuote');
+  const authorEl = document.getElementById('testimonialAuthor');
+  quoteEl.textContent = '“' + t.quote + '”';
+  authorEl.innerHTML = '';
+  authorEl.append('— ' + t.name);
+  if (t.role) {
+    authorEl.append(document.createElement('br'));
+    const em = document.createElement('em');
+    em.textContent = t.role;
+    authorEl.appendChild(em);
+  }
+  document.querySelectorAll('#testimonialDots .testimonial-dot').forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === i);
+  });
+  [quoteEl, authorEl].forEach((el) => {
+    el.classList.remove('testimonial-fade');
+    void el.offsetWidth;
+    el.classList.add('testimonial-fade');
+  });
+}
+
+function goToTestimonial(i) {
+  testimonialIndex = (i + TESTIMONIALS.length) % TESTIMONIALS.length;
+  renderTestimonial(testimonialIndex);
+}
+
+function advanceTestimonial() {
+  goToTestimonial(testimonialIndex + 1);
+}
+
+function startTestimonialCarousel() {
+  clearInterval(testimonialTimer);
+  testimonialTimer = setInterval(advanceTestimonial, TESTIMONIAL_INTERVAL);
+}
+
+const testimonialDots = document.getElementById('testimonialDots');
+TESTIMONIALS.forEach((t, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'testimonial-dot';
+  dot.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
+  dot.addEventListener('click', () => {
+    goToTestimonial(i);
+    startTestimonialCarousel();
+  });
+  testimonialDots.appendChild(dot);
+});
+
+renderTestimonial(testimonialIndex);
+startTestimonialCarousel();
 
 document.getElementById('testimonialCloseBtn').addEventListener('click', () => {
   document.getElementById('testimonialCard').hidden = true;
+  clearInterval(testimonialTimer);
 });
 
 /* ===== clock ===== */
