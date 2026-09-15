@@ -206,6 +206,10 @@ function bringToFront(el) {
   el.style.zIndex = zTop;
 }
 
+function isMobileViewport() {
+  return window.innerWidth <= 640;
+}
+
 let lastPlacedX = null;
 let lastPlacedY = null;
 
@@ -269,9 +273,9 @@ function openWindow(id) {
   if (wasHidden) {
     el.hidden = false;
     if (id === 'msn') {
-      placeOnRight(el);
+      isMobileViewport() ? placeCentered(el) : placeOnRight(el);
     } else if (id === 'winamp') {
-      placeOnLeft(el);
+      isMobileViewport() ? placeCentered(el) : placeOnLeft(el);
     } else if (id === 'terms') {
       placeCentered(el);
     } else {
@@ -1270,5 +1274,7 @@ winampAudio.volume = 0.7;
 
 renderWinampPlaylist();
 
-openWindow('winamp');
-openWindow('msn');
+if (!isMobileViewport()) {
+  openWindow('winamp');
+  openWindow('msn');
+}
