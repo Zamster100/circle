@@ -792,12 +792,13 @@ body {
 
 .clippy-popup {
   position: fixed;
-  left: 16px;
+  left: 50%;
   bottom: 54px;
+  transform: translateX(-50%);
   z-index: 8000;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   animation: toast-in 0.25s ease-out;
 }
 
@@ -807,14 +808,14 @@ body {
 
 .clippy-bubble {
   position: relative;
-  margin-left: 36px;
   margin-bottom: -4px;
   background: #ffffe1;
   border: 1px solid #000;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
   padding: 8px 20px 8px 10px;
   font-size: 12px;
-  max-width: 190px;
+  max-width: 220px;
+  text-align: center;
 }
 
 .clippy-bubble p {
@@ -825,8 +826,9 @@ body {
   content: '';
   position: absolute;
   bottom: -8px;
-  left: 22px;
-  border-width: 8px 8px 0 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0 8px;
   border-style: solid;
   border-color: #ffffe1 transparent transparent transparent;
 }
@@ -868,6 +870,10 @@ body {
 }
 
 /* ---------- manifesto window ---------- */
+
+.manifesto-body {
+  max-height: 80vh;
+}
 
 .manifesto-body h3 {
   text-align: center;

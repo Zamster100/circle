@@ -260,7 +260,7 @@ function openWindow(id) {
       isMobileViewport() ? placeCentered(el) : placeOnRight(el);
     } else if (id === 'winamp') {
       isMobileViewport() ? placeCentered(el) : placeOnLeft(el);
-    } else if (id === 'terms') {
+    } else if (id === 'terms' || id === 'manifesto') {
       placeCentered(el);
     } else {
       placeWindowRandomly(el);
