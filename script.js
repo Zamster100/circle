@@ -145,7 +145,7 @@ const LINKS = {
   buy: null,
   telegram: null,
   chart: null,
-  x: null,
+  x: 'https://x.com/circlejerklol',
 };
 
 function openLink(key, btn) {
