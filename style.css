@@ -175,25 +175,45 @@ body {
   background: #000;
   border-top: 2px solid #ffb800;
   border-bottom: 2px solid #ffb800;
-  padding: 6px 0;
+  padding: 6px 12px;
   margin: 0 20px;
   overflow: hidden;
 }
 
 .ticker-track {
   display: flex;
-  width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: #ffb800;
   font-family: "Courier New", monospace;
   font-size: 13px;
   font-weight: 700;
-  animation: ticker 16s linear infinite;
-  will-change: transform;
 }
 
 .ticker-seg {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.ticker-copy-btn {
   flex-shrink: 0;
+  background: transparent;
+  color: #ffb800;
+  border: 1px solid #ffb800;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.ticker-copy-btn:hover {
+  background: #ffb800;
+  color: #000;
 }
 
 @keyframes spin {
@@ -203,11 +223,6 @@ body {
 
 @keyframes blink {
   50% { opacity: 0; }
-}
-
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 /* ---------- retro footer ---------- */
@@ -797,48 +812,6 @@ body {
 .shutdown-overlay p {
   max-width: 420px;
   line-height: 1.6;
-}
-
-/* ---------- password gate ---------- */
-
-.password-gate {
-  position: fixed;
-  inset: 0;
-  background: #000 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="4" height="4" fill="%23000"/></svg>');
-  z-index: 20000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.password-gate[hidden] {
-  display: none;
-}
-
-.password-box {
-  width: 280px;
-  position: static;
-}
-
-.password-box .win-body h3 {
-  margin-top: 0;
-}
-
-.password-box .win-field {
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 8px;
-}
-
-.password-error {
-  color: #cc0000;
-  font-size: 11px;
-  margin: 8px 0 0;
-}
-
-.password-error[hidden] {
-  display: none;
 }
 
 /* ---------- testimonial card ---------- */
