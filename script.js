@@ -1107,6 +1107,7 @@ document.getElementById('chatInput').addEventListener('keydown', (e) => {
 /* ===== winamp (plays local files from Songs/) ===== */
 
 const WINAMP_TRACKS = [
+  { title: 'Jerk It Out', artist: 'Caesars Palace', file: 'Caesars Palace - Jerk It Out (Official Video) - Warner Music Sweden.mp3' },
   { title: 'Eye Of The Tiger', artist: 'Survivor', file: 'Survivor - Eye Of The Tiger Official HD Video.mp3' },
   { title: "Livin' On A Prayer", artist: 'Bon Jovi', file: "Bon Jovi - Livin' On A Prayer.mp3" },
   { title: 'Take On Me', artist: 'a-ha', file: 'Take On Me Official Video.mp3' },
