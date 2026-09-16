@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>$JERK</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
 
@@ -393,6 +393,50 @@
       </div>
     </div>
 
+    <div class="win95-window" id="win-manifesto" hidden style="width:400px;">
+      <div class="win-titlebar">
+        <span class="title">&#128220; manifesto.txt</span>
+        <span class="win-controls">
+          <button class="win-btn" data-action="minimize">_</button>
+          <button class="win-btn" data-action="close">X</button>
+        </span>
+      </div>
+      <div class="win-body manifesto-body">
+        <h3>THE CIRCLE JERK MANIFESTO</h3>
+        <p class="manifesto-subtitle"><em>A Declaration of Radical Honesty in an Industry Built on Vibes</em></p>
+
+        <p>We, the undersigned degenerates, hereby acknowledge what everyone already knew and nobody wanted to say out loud:</p>
+
+        <p class="manifesto-emphasis">It's all a circle.</p>
+
+        <p>The founder hypes the KOL. The KOL hypes the founder. The founder hypes three other founders, who each hype the KOL back. Somewhere in this circle, a chart goes up. Nobody knows why. Nobody asks why. The circle just&hellip; spins.</p>
+
+        <p>We watched &ldquo;utility&rdquo; become a punchline. We watched &ldquo;roadmaps&rdquo; become fan fiction. We watched grown adults with blue checkmarks scream &ldquo;WAGMI&rdquo; at each other while quietly moving their own bags to a cold wallet.</p>
+
+        <p class="manifesto-emphasis">We are not here to fix that.</p>
+
+        <p class="manifesto-emphasis">We are here to name it.</p>
+
+        <p>$JERK is not a utility token. $JERK does not &ldquo;solve real-world problems.&rdquo; $JERK does not have a whitepaper longer than a grocery list. $JERK has one honest feature: it spins faster when everyone's more excited, and slower when they're not, which, if you think about it, is a more accurate representation of the entire crypto market than 90% of the projects currently claiming to &ldquo;revolutionize finance.&rdquo;</p>
+
+        <p>We are the ring. We are the hands. We are, unfortunately, also each other's exit liquidity, and we're at least willing to admit it.</p>
+
+        <p>This is not financial advice. This is barely advice at all.</p>
+
+        <p>But if you're going to go in circles anyway, and let's be honest, you are, you might as well go in circles with people who'll laugh about it with you instead of pretending it's a mission statement.</p>
+
+        <p class="manifesto-closing">
+          Round and round we go.<br>
+          Nobody's breaking the circle.<br>
+          We just made the circle self-aware.
+        </p>
+
+        <p>$JERK, the only coin honest enough to admit it's going nowhere, together.</p>
+
+        <p class="manifesto-tagline">Circle $JERK on Arc, backed by Circle, paired with Circle, coming near you.</p>
+      </div>
+    </div>
+
     <div class="win95-window" id="win-shutdown" hidden style="width:300px;">
       <div class="win-titlebar">
         <span class="title">&#128268; Shut Down Windows</span>
@@ -432,6 +476,7 @@
       </div>
       <div class="start-item" data-open="about"><span class="start-icon">&#8505;</span> About $JERK</div>
       <div class="start-item" data-open="run"><span class="start-icon">&#128187;</span> Run...</div>
+      <div class="start-item" data-open="manifesto"><span class="start-icon">&#128220;</span> Manifesto</div>
       <div class="start-item" data-open="terms"><span class="start-icon">&#128220;</span> Terms &amp; Conditions</div>
       <div class="start-sep"></div>
       <div class="start-item" data-open="shutdown"><span class="start-icon">&#128268;</span> Shut Down...</div>
@@ -456,6 +501,14 @@
     <span class="dot dot-online"></span>
     <span id="msnToastBody"></span>
   </div>
+</div>
+
+<div class="clippy-popup" id="clippyPopup" hidden>
+  <div class="clippy-bubble">
+    <button class="clippy-bubble-close" id="clippyCloseBtn" aria-label="Dismiss">&times;</button>
+    <p>Hello Fren, <button class="clippy-link" id="clippyReadBtn" type="button">Read Manifesto</button></p>
+  </div>
+  <img src="assets/paper.png" alt="Clippy" class="clippy-img" id="clippyImg">
 </div>
 
 <div class="testimonial-card" id="testimonialCard">
@@ -485,6 +538,6 @@
 </div>
 <audio id="alonLaughAudio" src="assets/laugh.mp3" preload="none"></audio>
 
-<script src="script.js?v=22"></script>
+<script src="script.js?v=23"></script>
 </body>
 </html>

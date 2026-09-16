@@ -1263,3 +1263,35 @@ if (!isMobileViewport()) {
   openWindow('winamp');
   openWindow('msn');
 }
+
+/* ===== clippy manifesto popup ===== */
+
+(function () {
+  const popup = document.getElementById('clippyPopup');
+  const readBtn = document.getElementById('clippyReadBtn');
+  const closeBtn = document.getElementById('clippyCloseBtn');
+  const img = document.getElementById('clippyImg');
+
+  function showClippy() {
+    popup.hidden = false;
+  }
+
+  function hideClippy() {
+    popup.hidden = true;
+  }
+
+  setTimeout(showClippy, 5000);
+
+  readBtn.addEventListener('click', () => {
+    hideClippy();
+    openWindow('manifesto');
+  });
+  img.addEventListener('click', () => {
+    hideClippy();
+    openWindow('manifesto');
+  });
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideClippy();
+  });
+})();
