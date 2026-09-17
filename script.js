@@ -143,7 +143,7 @@ setInterval(updateClock, 1000 * 30);
 
 const LINKS = {
   buy: null,
-  telegram: null,
+  telegram: 'https://t.me/CIRCLEJERK_RH',
   chart: null,
   x: 'https://x.com/circlejerklol',
 };
