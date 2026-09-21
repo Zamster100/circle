@@ -142,7 +142,7 @@ setInterval(updateClock, 1000 * 30);
 /* ===== placeholder links -- fill these in before going live ===== */
 
 const LINKS = {
-  buy: null,
+  buy: 'https://dexscreener.com/robinhood/0xbdddc6b81a4e8c3b2ad81a889d56fb3d50e132c2addd98691f0c6c491ee652bb',
   telegram: 'https://t.me/CIRCLEJERK_RH',
   chart: 'https://dexscreener.com/robinhood/0xbdddc6b81a4e8c3b2ad81a889d56fb3d50e132c2addd98691f0c6c491ee652bb',
   x: 'https://x.com/circlejerklol',
