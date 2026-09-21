@@ -146,6 +146,7 @@ const LINKS = {
   telegram: 'https://t.me/CIRCLEJERK_RH',
   chart: 'https://dexscreener.com/robinhood/0xbdddc6b81a4e8c3b2ad81a889d56fb3d50e132c2addd98691f0c6c491ee652bb',
   x: 'https://x.com/circlejerklol',
+  fomo: 'https://fomo.family/tokens/robinhood/0xf2bdf274845b1c5ed18b702436c50c72a639d89a',
 };
 
 function openLink(key, btn) {
@@ -533,6 +534,8 @@ document.getElementById('copyCaBtn').addEventListener('click', (e) => {
 });
 
 document.getElementById('buyLinkBtn').addEventListener('click', (e) => openLink('buy', e.currentTarget));
+document.getElementById('tickerFomoBtn').addEventListener('click', (e) => openLink('fomo', e.currentTarget));
+document.getElementById('tickerDexBtn').addEventListener('click', (e) => openLink('chart', e.currentTarget));
 document.getElementById('followXBtn').addEventListener('click', (e) => openLink('x', e.currentTarget));
 document.getElementById('chartLinkBtn').addEventListener('click', (e) => openLink('chart', e.currentTarget));
 document.getElementById('telegramLinkBtn').addEventListener('click', (e) => openLink('telegram', e.currentTarget));
